@@ -11,6 +11,11 @@ if [ "$1" = gofed ]; then
         cd "$WORKDIR"
     fi
 
+    if [ `stat -c%u /opt/gofed/working_directory` -eq 0 ]; then
+        echo "Updating permissions on /opt/gofed/working_directory"
+        chown -R "$UID:$GID" /opt/gofed/working_directory
+    fi
+
     exec gosu "$UID:$GID" "$@"
 else
     exec "$@"

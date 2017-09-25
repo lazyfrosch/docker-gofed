@@ -17,5 +17,7 @@ ENV USER=markus \
 COPY entrypoint.sh /entrypoint
 COPY gofed /usr/local/bin
 
+VOLUME /opt/gofed/working_directory
+
 ENTRYPOINT [ "/entrypoint" ]
 CMD [ "gofed" ]
