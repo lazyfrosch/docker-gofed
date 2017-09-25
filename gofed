@@ -1,0 +1,2 @@
+#!/bin/bash
+exec /opt/gofed/hack/gofed.sh "$@"
